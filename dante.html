@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotos de Animais</title>
+  <link rel="stylesheet" href="fotos de animais.css">
+</head>
+<body>
+ 
+  <header class="cabecalho">
+    <nav class="navegacao">
+      <h1>FOTOS DE ANIMAIS</h1>
+ 
+      <div class="filtros">
+        <button class="filtro ativo" data-filtro="todos">Todos</button>
+        <button class="filtro" data-filtro="extintos">Galeria 01</button>
+        <button class="filtro" data-filtro="atuais">Galeria 02</button>
+      </div>
+    </nav>
+ 
+    <section class="hero">
+      <div class="hero-conteudo">
+        <p class="etiqueta">MEMÓRIAS DA VIDA SELVAGEM</p>
+        <h2>Histórias capturadas<br>em cada espécie.</h2>
+        <p>
+          Uma coleção visual de animais que fazem parte da história
+          e da natureza do nosso planeta.
+        </p>
+        <a href="#galeria" class="botao">Explorar galeria</a>
+      </div>
+    </section>
+  </header>
+ 
+  <main id="galeria" class="galeria">
+ 
+    <article class="cartao extintos">
+      <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=900&q=85" alt="Elefante">
+      <div class="informacoes">
+        <span>01</span>
+        <h3>Gigantes do passado</h3>
+        <p>Uma lembrança visual de espécies que marcaram eras.</p>
+      </div>
+    </article>
+ 
+    <article class="cartao extintos destaque">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=85" alt="Fóssil de animal">
+      <div class="informacoes">
+        <span>02</span>
+        <h3>Vestígios da história</h3>
+        <p>Fragmentos que ajudam a contar a evolução da vida.</p>
+      </div>
+    </article>
+ 
+    <article class="cartao atuais">
+      <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=900&q=85" alt="Leão">
+      <div class="informacoes">
+        <span>03</span>
+        <h3>Reis da natureza</h3>
+        <p>Força, beleza e presença em seu habitat natural.</p>
+      </div>
+    </article>
+ 
+    <article class="cartao atuais">
+      <img src="https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=900&q=85" alt="Pássaro colorido">
+      <div class="informacoes">
+        <span>04</span>
+        <h3>Cores da liberdade</h3>
+        <p>Movimento e vida em uma composição cheia de cores.</p>
+      </div>
+    </article>
+ 
+    <article class="cartao extintos">
+      <img src="https://images.unsplash.com/photo-1570741066052-817c6de995c8?auto=format&fit=crop&w=900&q=85" alt="Réptil">
+      <div class="informacoes">
+        <span>05</span>
+        <h3>Herança ancestral</h3>
+        <p>Formas que parecem ter saído diretamente de outra era.</p>
+      </div>
+    </article>
+ 
+    <article class="cartao atuais">
+      <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=900&q=85" alt="Animal selvagem">
+      <div class="informacoes">
+        <span>06</span>
+        <h3>Vida selvagem</h3>
+        <p>A natureza em seu estado mais puro e impressionante.</p>
+      </div>
+    </article>
+ 
+  </main>
+ 
+  <footer>
+    <p>© 2026 Fotos de Animais · Uma galeria visual da vida selvagem</p>
+  </footer>
+ 
+  <script>
+    const botoes = document.querySelectorAll(".filtro");
+    const cartoes = document.querySelectorAll(".cartao");
+ 
+    botoes.forEach(botao => {
+      botao.addEventListener("click", () => {
+        botoes.forEach(item => item.classList.remove("ativo"));
+        botao.classList.add("ativo");
+ 
+        const filtro = botao.dataset.filtro;
+ 
+        cartoes.forEach(cartao => {
+          if (filtro === "todos" || cartao.classList.contains(filtro)) {
+            cartao.style.display = "block";
+          } else {
+            cartao.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+ 
+</body>
+</html>

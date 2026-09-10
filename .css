@@ -1,0 +1,260 @@
+`fotos de animais.css`
+Bloco de Código (css)
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap');
+ 
+:root {
+  --escuro: #101611;
+  --verde: #213b2a;
+  --verde-claro: #9fc35b;
+  --amarelo: #e3b84e;
+  --creme: #f4f0e6;
+  --branco: #ffffff;
+  --cinza: #b9c0b6;
+}
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+html {
+  scroll-behavior: smooth;
+}
+ 
+body {
+  background: var(--escuro);
+  color: var(--creme);
+  font-family: "DM Sans", sans-serif;
+}
+ 
+.cabecalho {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(16, 22, 17, .98), rgba(16, 22, 17, .55), rgba(16, 22, 17, .2)),
+    url("https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?auto=format&fit=crop&w=2000&q=90") center/cover;
+}
+ 
+.navegacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 7%;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+ 
+.navegacao h1 {
+  color: var(--branco);
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+ 
+.filtros {
+  display: flex;
+  gap: 10px;
+}
+ 
+.filtro {
+  border: 1px solid rgba(255,255,255,.35);
+  background: transparent;
+  color: var(--branco);
+  border-radius: 30px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: .3s;
+  font-family: inherit;
+}
+ 
+.filtro:hover,
+.filtro.ativo {
+  background: var(--amarelo);
+  border-color: var(--amarelo);
+  color: var(--escuro);
+}
+ 
+.hero {
+  min-height: calc(100vh - 91px);
+  display: flex;
+  align-items: center;
+  padding: 8%;
+}
+ 
+.hero-conteudo {
+  max-width: 650px;
+  animation: aparecer 1s ease;
+}
+ 
+.etiqueta {
+  color: var(--verde-claro);
+  font-size: 13px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+ 
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: .98;
+  margin-bottom: 28px;
+  color: var(--branco);
+}
+ 
+.hero-conteudo > p:not(.etiqueta) {
+  max-width: 450px;
+  color: var(--cinza);
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+ 
+.botao {
+  display: inline-block;
+  color: var(--escuro);
+  background: var(--amarelo);
+  padding: 15px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+ 
+.botao:hover {
+  background: var(--branco);
+  transform: translateY(-4px);
+}
+ 
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 7%;
+}
+ 
+.cartao {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  background: var(--verde);
+  border-radius: 5px;
+  animation: aparecer .7s ease;
+}
+ 
+.cartao.destaque {
+  transform: translateY(-35px);
+}
+ 
+.cartao img {
+  width: 100%;
+  height: 100%;
+  min-height: 470px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.8);
+  transition: .5s;
+}
+ 
+.cartao::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 35%, rgba(0,0,0,.9));
+}
+ 
+.cartao:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.2);
+}
+ 
+.informacoes {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  padding: 28px;
+}
+ 
+.informacoes span {
+  color: var(--amarelo);
+  font-size: 13px;
+  font-weight: bold;
+}
+ 
+.informacoes h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+  color: var(--branco);
+  margin: 8px 0;
+}
+ 
+.informacoes p {
+  color: #d7ddd5;
+  line-height: 1.5;
+  font-size: 14px;
+}
+ 
+footer {
+  padding: 30px 7%;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: var(--cinza);
+  font-size: 13px;
+}
+ 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+ 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+@media (max-width: 900px) {
+  .navegacao {
+    flex-direction: column;
+    gap: 22px;
+  }
+ 
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  .cartao.destaque {
+    transform: none;
+  }
+}
+ 
+@media (max-width: 600px) {
+  .navegacao {
+    align-items: flex-start;
+  }
+ 
+  .filtros {
+    flex-wrap: wrap;
+  }
+ 
+  .hero {
+    padding: 18% 7%;
+  }
+ 
+  .hero h2 {
+    font-size: 52px;
+  }
+ 
+  .galeria {
+    grid-template-columns: 1fr;
+    padding-top: 60px;
+  }
+ 
+  .cartao,
+  .cartao img {
+    min-height: 420px;
+  }
+}
